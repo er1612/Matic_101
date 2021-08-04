@@ -9,3 +9,11 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+app.get('/clientes/:idcliente', (req, res) => {
+  let idcliente = req.params.idcliente;
+  return res.json({
+    success: true,
+    cliente: idcliente
+  });
+})
