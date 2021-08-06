@@ -14,12 +14,12 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-app.get('/servicio/:id', (req, res) => {
-  let id = req.params.idcliente;
-  if(id=="1"){
+app.get('/servicio/:tipo', (req, res) => {
+  let tipo = String(req.params.tipo);
+  if(tipo=="1"){
     return res.json({
       success: true,
-      id: id,
+      tipo: tipo,
       resultado: [
         {
           "Id": 1,
@@ -48,10 +48,10 @@ app.get('/servicio/:id', (req, res) => {
         }
       ]
     });
-  }else if(id=="2"){
+  }else if(tipo=="2"){
     return res.json({
       success: true,
-      id: id,
+      tipo: tipo,
       resultado: [
         {
           "Id": 6,
@@ -80,10 +80,10 @@ app.get('/servicio/:id', (req, res) => {
         }
       ]
     });
-  }else if(id=="3"){
+  }else if(tipo=="3"){
     return res.json({
       success: true,
-      id: id,
+      tipo: tipo,
       resultado: [
         {
           "Id": 11,
@@ -115,7 +115,7 @@ app.get('/servicio/:id', (req, res) => {
   }else{
     return res.json({
       success: true,
-      id: id,
+      tipo: tipo,
       resultado: [
         {
           "Id": 1,
