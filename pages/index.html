@@ -1,10 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
     <meta charset="UTF-8">
     <title>MATIC 101</title>
 </head>
 <body>
-<h1>Servicios Web</h1>
+<div class="jumbotron text-center">
+    <h1>FINTEC - ADMINISTRADOR</h1>
+</div>
+
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#menu0">Servicio 1</a></li>
+    <li><a data-toggle="tab" href="#menu1">Servicio 2</a></li>
+    <li><a data-toggle="tab" href="#menu2">Servicio 3</a></li>
+    <li><a data-toggle="tab" href="#menu3">Servicio 4</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="menu0" class="tab-pane fade in active" style="padding: 20px;">
+        <h3>Servicio 1</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody id="tabla1">
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 1</button>
+    </div>
+    <div id="menu1" class="tab-pane fade" style="padding: 20px;">
+        <h3>Servicio 2</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody id="tabla2">
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 2</button>
+    </div>
+    <div id="menu2" class="tab-pane fade" style="padding: 20px;">
+        <h3>Servicio 3</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody id="tabla3">
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 3</button>
+    </div>
+    <div id="menu3" class="tab-pane fade" style="padding: 20px;">
+        <h3>Servicio 4</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody id="tabla4">
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 4</button>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function ConsumirServicio1() {
+        $.ajax({
+            type: "GET",
+            url: "https://httpbin.org/get",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                $("#txt1").val(JSON.stringify(data));
+            },
+            failure: function (data) {
+                alert(data.responseText);
+            },
+            error: function (data) {
+                alert(data.responseText);
+            }
+        });
+    }
+</script>
 </body>
 </html>
