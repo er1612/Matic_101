@@ -2,6 +2,14 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+var allowCrossDomain = function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+};
+
+app.use(allowCrossDomain);
+
 /*app.get('/', (req, res) => {
   res.send('¡Hola Mundo! Desde Ubuntu AWS')
 })*/
@@ -95,4 +103,8 @@ app.get('/socios', (req, res) => {
       }
     ]
   });
+})
+
+app.get('/productos/:id', (req, res) => {
+  let id = String(req.params.id);
 })

@@ -146,20 +146,30 @@
 
 <script type="text/javascript">
     function ConsumirServicio1() {
-        $.ajax({
+        /*$.ajax({
             type: "GET",
             url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui=1846564810101",
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            dataType: "jsonp",
             success: function (data) {
                 console.log(data);
             },
             failure: function (data) {
-                alert(data.responseText);
+                console.log(data);
             },
             error: function (data) {
-                alert(data.responseText);
+                console.log(data);
             }
+        });*/
+        $.ajax({
+            url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui=1846564810101",
+            cache: false,
+            type: "GET",
+            dataType: "json",
+        }).done(function (data) {
+            console.log(data);
+        }).fail(function () {
+            console.log("Error - Revisa el estado de tu conexión.");
         });
     }
 </script>
