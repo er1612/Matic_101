@@ -107,4 +107,33 @@ app.get('/socios', (req, res) => {
 
 app.get('/productos/:id', (req, res) => {
   let id = String(req.params.id);
+  switch (id) {
+    case "6":
+      return res.json({
+        "id": 6,
+        "title": "Apple iPhone 11",
+        "image": "./images/products/iphone/iphone3.jpeg",
+        "price": 760,
+        "category": "Featured Products"
+      });
+      break;
+    case "3":
+      return res.json({
+        "id": 3,
+        "title": "Sony WH-CH510",
+        "image": "./images/products/headphone/headphone2.jpeg",
+        "price": 265,
+        "category": "Special Products"
+      });
+      break;
+    case "4":
+      return res.json({
+        "id": 4,
+        "title": "Apple iPhone 11",
+        "image": "./images/products/iphone/iphone2.jpeg",
+        "price": 850,
+        "category": "Special Products"
+      });
+      break;
+  }
 })
