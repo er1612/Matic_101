@@ -49,7 +49,7 @@
             </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 1</button>
+        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1()">Consumir servicio 1</button>
     </div>
     <div id="menu1" class="tab-pane fade" style="padding: 20px;">
         <h3>Servicio 2</h3>
@@ -148,11 +148,11 @@
     function ConsumirServicio1() {
         $.ajax({
             type: "GET",
-            url: "https://httpbin.org/get",
+            url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui=1846564810101",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                $("#txt1").val(JSON.stringify(data));
+                console.log(data);
             },
             failure: function (data) {
                 alert(data.responseText);
