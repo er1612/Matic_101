@@ -22,34 +22,24 @@
 
 <div class="tab-content">
     <div id="menu0" class="tab-pane fade in active" style="padding: 20px;">
-        <h3>Servicio 1</h3>
+        <h3>RENAP 1</h3>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
+                <th>Nombre</th>
+                <th>NIT</th>
+                <th>CUI</th>
             </tr>
             </thead>
-            <tbody id="tabla1">
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-            </tr>
-            </tbody>
+            <tbody id="tabla1"></tbody>
         </table>
-        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1()">Consumir servicio 1</button>
+        <div class="form-group">
+            <label for="txtcui">CUI:</label>
+            <input type="text" class="form-control" id="txtcui">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1()">Obtener</button>
+        </div>
     </div>
     <div id="menu1" class="tab-pane fade" style="padding: 20px;">
         <h3>Servicio 2</h3>
@@ -79,7 +69,14 @@
             </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio1">Consumir servicio 2</button>
+        <div class="form-group">
+            <label for="txt">CUI:</label>
+            <input type="text" class="form-control" id="txt">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-warning" style="width: 40%;" onclick="ConsumirServicio2">Obtener</button>
+        </div>
+
     </div>
     <div id="menu2" class="tab-pane fade" style="padding: 20px;">
         <h3>Servicio 3</h3>
@@ -146,28 +143,17 @@
 
 <script type="text/javascript">
     function ConsumirServicio1() {
-        /*$.ajax({
-            type: "GET",
-            url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui=1846564810101",
-            contentType: "application/json; charset=utf-8",
-            dataType: "jsonp",
-            success: function (data) {
-                console.log(data);
-            },
-            failure: function (data) {
-                console.log(data);
-            },
-            error: function (data) {
-                console.log(data);
-            }
-        });*/
+        //1846564810101
         $.ajax({
-            url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui=1846564810101",
+            url: "https://44k1rx3g1k.execute-api.us-east-2.amazonaws.com/default/solicitudDPI?cui="+$("#txtcui").val(),
             cache: false,
             type: "GET",
             dataType: "json",
         }).done(function (data) {
             console.log(data);
+            console.log(data.cui);
+            let fila = "<tr><td>" + data.nombreCompleto +"</td>"+"<td>" + data.nit +"</td>"+"<td>" + data.cui +"</td></tr>";
+            $("#tabla1").append(fila);
         }).fail(function () {
             console.log("Error - Revisa el estado de tu conexión.");
         });

@@ -108,20 +108,26 @@ app.get('/socios', (req, res) => {
 app.get('/productos/:id', (req, res) => {
   let id = String(req.params.id);
   switch (id) {
-    case "6":
+    case "1":
       return res.json({
-        "id": 6,
+        "id": 1,
+        "title": "Sony WH-CH510",
+        "price": 265,
+        "category": "Special Products"
+      });
+      break;
+    case "2":
+      return res.json({
+        "id": 2,
         "title": "Apple iPhone 11",
-        "image": "./images/products/iphone/iphone3.jpeg",
-        "price": 760,
-        "category": "Featured Products"
+        "price": 300,
+        "category": "Special Products"
       });
       break;
     case "3":
       return res.json({
         "id": 3,
         "title": "Sony WH-CH510",
-        "image": "./images/products/headphone/headphone2.jpeg",
         "price": 265,
         "category": "Special Products"
       });
@@ -130,19 +136,104 @@ app.get('/productos/:id', (req, res) => {
       return res.json({
         "id": 4,
         "title": "Apple iPhone 11",
-        "image": "./images/products/iphone/iphone2.jpeg",
         "price": 850,
         "category": "Special Products"
+      });
+      break;
+    case "5":
+      return res.json({
+        "id": 5,
+        "title": "Sony WH-CH510",
+        "price": 250,
+        "category": "Special Products"
+      });
+      break;
+    case "6":
+      return res.json({
+        "id": 6,
+        "title": "Apple iPhone 11",
+        "price": 760,
+        "category": "Featured Products"
+      });
+      break;
+    case "7":
+      return res.json({
+        "id": 7,
+        "title": "Sony WH-CH510",
+        "price": 365,
+        "category": "Featured Products"
       });
       break;
     case "8":
       return res.json({
         "id": 8,
         "title": "Apple iPhone 11",
-        "image": "./images/products/iphone/iphone4.jpeg",
         "price": 290,
         "category": "Featured Products"
       });
       break;
+    case "9":
+      return res.json({
+        "id": 9,
+        "title": "Sony WH-CH510",
+        "price": 320,
+        "category": "Special Products"
+      });
+      break;
+    case "10":
+      return res.json({
+        "id": 10,
+        "title": "Apple iPhone 11 Pro",
+        "price": 385,
+        "category": "Special Products"
+      });
+      break;
+    case "11":
+      return res.json({
+        "id": 11,
+        "title": "Sony WH-CH510",
+        "price": 475,
+        "category": "Special Products"
+      });
+      break;
+    case "12":
+      return res.json({
+        "id": 12,
+        "title": "Sony WH-CH510",
+        "price": 850,
+        "category": "Special Products"
+      });
+      break;
+    case "13":
+      return res.json({
+        "id": 13,
+        "title": "Apple iPhone 11",
+        "price": 800,
+        "category": "Trending Products"
+      });
+      break;
+    case "14":
+      return res.json({
+        "id": 14,
+        "title": "Sony WH-CH510",
+        "price": 360,
+        "category": "Trending Products"
+      });
+      break;
+    case "15":
+      return res.json({
+        "id": 15,
+        "title": "Sony WH-CH510",
+        "price": 305,
+        "category": "Trending Products"
+      });
+      break;
+    default:
+      return res.json({
+        "id": 0,
+        "title": "no encontrado",
+        "price": 0,
+        "category": "no encontrado"
+      });
   }
 })
