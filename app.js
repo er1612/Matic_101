@@ -135,5 +135,14 @@ app.get('/productos/:id', (req, res) => {
         "category": "Special Products"
       });
       break;
+    case "8":
+      return res.json({
+        "id": 8,
+        "title": "Apple iPhone 11",
+        "image": "./images/products/iphone/iphone4.jpeg",
+        "price": 290,
+        "category": "Featured Products"
+      });
+      break;
   }
 })
